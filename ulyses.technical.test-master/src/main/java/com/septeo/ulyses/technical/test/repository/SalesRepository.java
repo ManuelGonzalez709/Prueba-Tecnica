@@ -30,6 +30,7 @@ public interface SalesRepository {
      */
     Optional<Sales> findById(Long id);
 
+    /*Metodos nuevos*/
 
     List<Sales> getSalesByBrandId(Long id);
 
