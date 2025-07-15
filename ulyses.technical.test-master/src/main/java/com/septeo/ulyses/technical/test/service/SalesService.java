@@ -29,11 +29,26 @@ public interface SalesService {
      */
     Optional<Sales> getSalesById(Long id);
 
-    /*Metodos nuevos*/
-
+    /**
+     * Find Sales By Brand Id
+     *
+     * @param id the ID of the brand to find the sales
+     * @return a list of sales of this brand
+     */
     List<Sales> getSalesByBrandId(Long id);
 
+    /**
+     * Find Sales by Vehicle id
+     *
+     * @param id the ID of the vehicle to find his sales
+     * @return a list of sales of this vehicle
+     */
     List<Sales> getSalesByVehicleId(Long id);
 
+    /**
+     * Find the 5 best sales of all the sales
+     *
+     * @return a list of the 5 bes sales
+     */
     List<Vehicle> getBestSellingVehicle(LocalDate start, LocalDate end);
 }
