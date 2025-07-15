@@ -1,11 +1,15 @@
 package com.septeo.ulyses.technical.test.controller;
 
 import com.septeo.ulyses.technical.test.entity.Sales;
+import com.septeo.ulyses.technical.test.entity.Vehicle;
 import com.septeo.ulyses.technical.test.service.SalesService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -39,6 +43,15 @@ public class SalesController {
     @GetMapping("/vehicles/{vehicleId}")
     public ResponseEntity<List<Sales>> getSalesByVehicleId(@PathVariable Long vehicleId) {
         return ResponseEntity.ok(salesService.getSalesByVehicleId(vehicleId));
+    }
+//2025-01-01
+
+    @GetMapping("/vehicles/bestSelling")
+    public ResponseEntity<List<Vehicle>> getBestSellingVehicle(
+            @RequestParam(value = "startDate", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startDate,
+            @RequestParam(value = "endDate", required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate
+    ) {
+        return ResponseEntity.ok(salesService.getBestSellingVehicle(startDate, endDate));
     }
 
 

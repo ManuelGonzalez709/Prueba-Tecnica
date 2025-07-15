@@ -6,6 +6,7 @@ import com.septeo.ulyses.technical.test.entity.Vehicle;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -33,4 +34,6 @@ public interface SalesRepository {
     List<Sales> getSalesByBrandId(Long id);
 
     List<Sales> getSalesByVehicleId(Long id);
+
+    List<Vehicle> getBestSellingVehicle(LocalDate start,LocalDate end);
 }

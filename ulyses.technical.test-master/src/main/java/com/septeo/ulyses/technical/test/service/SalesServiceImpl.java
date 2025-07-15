@@ -1,11 +1,14 @@
 package com.septeo.ulyses.technical.test.service;
 
 import com.septeo.ulyses.technical.test.entity.Sales;
+import com.septeo.ulyses.technical.test.entity.Vehicle;
 import com.septeo.ulyses.technical.test.repository.SalesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -51,6 +54,15 @@ public class SalesServiceImpl implements SalesService {
     public List<Sales> getSalesByVehicleId(Long id) {
         return salesRepository.getSalesByVehicleId(id);
     }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public List<Vehicle> getBestSellingVehicle(LocalDate start, LocalDate end) {
+        return salesRepository.getBestSellingVehicle(start,end);
+    }
+
 
 
 }
