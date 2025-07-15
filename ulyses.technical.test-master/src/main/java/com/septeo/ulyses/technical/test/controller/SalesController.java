@@ -24,8 +24,6 @@ public class SalesController {
         return ResponseEntity.ok(salesService.getAllSales(page));
     }
 
-
-
     @GetMapping("/{id}")
     public ResponseEntity<Sales> getSalesById(@PathVariable Long id) {
         return salesService.getSalesById(id)
@@ -44,7 +42,6 @@ public class SalesController {
     public ResponseEntity<List<Sales>> getSalesByVehicleId(@PathVariable Long vehicleId) {
         return ResponseEntity.ok(salesService.getSalesByVehicleId(vehicleId));
     }
-//2025-01-01
 
     @GetMapping("/vehicles/bestSelling")
     public ResponseEntity<List<Vehicle>> getBestSellingVehicle(

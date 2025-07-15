@@ -21,7 +21,7 @@ public class BrandCache {
     @Autowired
     private BrandService brandService;
 
-    // Para la lista completa de marcas
+    // For all brands (list)
     private static class ListCacheEntry {
         List<Brand> brands;
         long timestamp;
@@ -30,8 +30,7 @@ public class BrandCache {
             this.timestamp = timestamp;
         }
     }
-
-    // Para marcas por id
+    // For single brand for id
     private static class CacheEntry {
         Brand brand;
         long timestamp;
@@ -43,6 +42,11 @@ public class BrandCache {
 
     private ListCacheEntry allBrandsCache = null;
 
+    /***
+     * Method used to obtain brands by id in cache
+     * @param id id of thge brand
+     * @return returns the brand
+     */
     public Optional<Brand> getBrandById(Long id) {
         long now = System.currentTimeMillis();
         CacheEntry entry = cache.get(id);
@@ -64,6 +68,10 @@ public class BrandCache {
         }
     }
 
+    /***
+     * Method used to obtain all brands in chache
+     * @return returns the list of all the brands
+     */
     public List<Brand> getAllBrands() {
         long now = System.currentTimeMillis();
         ListCacheEntry entry = allBrandsCache;

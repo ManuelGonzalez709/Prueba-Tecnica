@@ -21,7 +21,7 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.DELETE, "/**").authenticated()
                         .anyRequest().permitAll()
                 )
-                .httpBasic(Customizer.withDefaults()); // Esta es la forma recomendada en 6.1+
+                .httpBasic(Customizer.withDefaults());
         return http.build();
     }
 }
